@@ -1,0 +1,31 @@
+.holes {
+	display: flex;
+	justify-content: center;
+}
+
+.hole {
+	position: relative;
+	width: 150px;
+	height: 120px;
+	padding-top: 40px;
+	overflow: hidden;
+
+	&__up {
+		height: 70px;
+		width: 100%;
+		background-image: url('img/hole-up.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+
+	&__down {
+		position: relative;
+		z-index: 1;
+		height: 40px;
+		width: 100%;
+		margin-top: -20px;
+		background-image: url('img/hole-down.png');
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+}

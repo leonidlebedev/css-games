@@ -1,0 +1,46 @@
+.game {
+	position: relative;
+	overflow: hidden;
+	//display: none;
+	height: 100%;
+	width: 100%;
+	cursor: url('img/car-player.png') 32 0, auto;
+
+	&:hover {
+		.game__prepare {
+			animation: prepare 100s forwards linear;
+		}
+
+		.car {
+			animation-play-state: running;
+		}
+	}
+
+	&__prepare {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 390px;
+		z-index: 1;
+		background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), black);
+		border-bottom: 1px solid white;
+
+		&:hover {
+			display: none;
+
+			& ~ .screen_lose {
+				display: block;
+			}
+		}
+	}
+}
+
+@keyframes prepare {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-5000px);
+	}
+}

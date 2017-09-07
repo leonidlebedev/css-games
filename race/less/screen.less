@@ -1,0 +1,82 @@
+.screen {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	overflow: hidden;
+	padding-top: 10vh;
+	padding-left: 5vh;
+	padding-right: 5vh;
+	color: @text-color;
+
+	&:hover {
+		display: block;
+		cursor: auto;
+	}
+
+	&_win {
+		z-index: 100;
+		background-color: goldenrod;
+	}
+
+	&_police {
+		z-index: 100;
+		background-color: darkred;
+	}
+
+	&_welcome {
+		display: block;
+	}
+
+	&_lose {
+		z-index: 40;
+		background-color: darkred;
+	}
+
+	&__header {
+		position: relative;
+		z-index: 10;
+		margin-top: 0;
+		margin-bottom: 0.2em;
+
+		font-size: 5em;
+		font-weight: 700;
+	}
+
+	&__paragraph {
+		position: relative;
+		z-index: 10;
+		margin-top: 0;
+		margin-bottom: 2em;
+
+		font-size: 1.5em;
+		font-weight: 500;
+	}
+
+	&__cars {
+		position: relative;
+		font-size: 4em;
+		transform: scaleX(-1) translateX(300px);
+		animation: welcome-car 5s infinite ease-out;
+		text-align: right;
+		z-index: 10;
+
+		i {
+			font-style: normal;
+		}
+	}
+}
+
+@keyframes welcome-car {
+	0% {
+		transform: scaleX(-1) translateX(300px);
+	}
+
+	100% {
+		transform: scaleX(-1) translateX(-@board-width - 300px);
+	}
+}

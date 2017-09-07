@@ -1,0 +1,359 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-size: 16px;
+  background-color: black;
+}
+.wrapper {
+  position: relative;
+  width: 460px;
+  height: 100vh;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: black;
+  background-image: url('img/road2.jpg');
+  background-size: 100% auto;
+  background-position: 0 0;
+  animation: road 4s infinite linear both;
+  transform: translateZ(0);
+}
+.wrapper:hover {
+  animation-duration: 1s;
+}
+.wrapper:hover .screen_welcome {
+  display: none;
+}
+.wrapper:hover .game {
+  display: block;
+}
+@keyframes road {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 560px;
+  }
+}
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  overflow: hidden;
+  padding-top: 10vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  color: white;
+}
+.screen:hover {
+  display: block;
+  cursor: auto;
+}
+.screen_win {
+  z-index: 100;
+  background-color: goldenrod;
+}
+.screen_police {
+  z-index: 100;
+  background-color: darkred;
+}
+.screen_welcome {
+  display: block;
+}
+.screen_lose {
+  z-index: 40;
+  background-color: darkred;
+}
+.screen__header {
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-size: 5em;
+  font-weight: 700;
+}
+.screen__paragraph {
+  position: relative;
+  z-index: 10;
+  margin-top: 0;
+  margin-bottom: 2em;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.screen__cars {
+  position: relative;
+  font-size: 4em;
+  transform: scaleX(-1) translateX(300px);
+  animation: welcome-car 5s infinite ease-out;
+  text-align: right;
+  z-index: 10;
+}
+.screen__cars i {
+  font-style: normal;
+}
+@keyframes welcome-car {
+  0% {
+    transform: scaleX(-1) translateX(300px);
+  }
+  100% {
+    transform: scaleX(-1) translateX(-760px);
+  }
+}
+.game {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  cursor: url('img/car-player.png') 32 0, auto;
+}
+.game:hover .game__prepare {
+  animation: prepare 100s forwards linear;
+}
+.game:hover .car {
+  animation-play-state: running;
+}
+.game__prepare {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 390px;
+  z-index: 1;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), black);
+  border-bottom: 1px solid white;
+}
+.game__prepare:hover {
+  display: none;
+}
+.game__prepare:hover ~ .screen_lose {
+  display: block;
+}
+@keyframes prepare {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5000px);
+  }
+}
+.car {
+  position: absolute;
+  display: block;
+  transform: translateY(0);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  animation-name: game-car;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
+}
+.car:hover ~ .screen_lose {
+  display: block;
+}
+.car:hover {
+  animation-play-state: paused !important;
+}
+.car_win {
+  width: 144px;
+  height: 280px;
+  background-image: url('img/car-win.png');
+  top: -200px;
+  left: 157px;
+  transform: translateY(0);
+  animation: car-win 3s infinite alternate linear forwards;
+}
+.car_win:hover ~ .screen_win {
+  display: block;
+}
+.car_police {
+  width: 114px;
+  height: 241px;
+  background-image: url('img/car-police.png');
+  border-radius: 55px;
+}
+.car_police:hover ~ .screen_police {
+  display: block;
+}
+.car_yellow {
+  width: 114px;
+  height: 243px;
+  background-image: url('img/car-yellow.png');
+  border-radius: 55px;
+}
+.car_mers {
+  width: 114px;
+  height: 267px;
+  background-image: url('img/car-mers.png');
+  border-radius: 50px;
+}
+.car_red {
+  width: 110px;
+  height: 256px;
+  background-image: url('img/car-red.png');
+  border-radius: 55px;
+}
+.car_silver {
+  width: 102px;
+  height: 250px;
+  background-image: url('img/car-silver.png');
+  border-radius: 55px;
+}
+.car_truck {
+  width: 114px;
+  height: 295px;
+  background-image: url('img/car-truck.png');
+  border-radius: 40px;
+}
+.car_white {
+  width: 104px;
+  height: 252px;
+  background-image: url('img/car-white.png');
+  border-radius: 55px;
+}
+.car_home {
+  width: 109px;
+  height: 264px;
+  background-image: url('img/car-home.png');
+  border-radius: 50px;
+}
+.car_1,
+.car_5 {
+  left: 3px;
+  top: -300px;
+  animation-duration: 6s;
+}
+.car_2,
+.car_ltr {
+  left: 90px;
+  top: -330px;
+}
+.car_3,
+.car_rtl {
+  left: 265px;
+  top: -270px;
+}
+.car_4,
+.car_6 {
+  left: 350px;
+  top: -430px;
+  animation-duration: 4.5s;
+}
+.car_p1 {
+  left: 265px;
+  bottom: -50px;
+}
+.car_p2 {
+  left: 90px;
+  bottom: -30px;
+  animation-delay: 0.3s;
+}
+.car_p1,
+.car_p2 {
+  animation-name: car-police;
+  animation-duration: 5s;
+  animation-direction: alternate;
+}
+.car_2 {
+  animation-duration: 5s;
+  animation-timing-function: ease-in;
+}
+.car_3 {
+  animation-duration: 5s;
+}
+.car_5 {
+  animation-delay: 2s;
+}
+.car_6 {
+  animation-delay: 2s;
+}
+.car_ltr {
+  animation-name: car-ltr;
+  animation-duration: 5s;
+  animation-delay: 4s;
+}
+.car_rtl {
+  animation-name: car-rtl;
+  animation-duration: 5s;
+  animation-delay: 2s;
+}
+@keyframes game-car {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(100vh + 600px + 126px));
+  }
+}
+@keyframes car-win {
+  0% {
+    transform: translate(0, 0);
+  }
+  12.5% {
+    transform: translate(-2px, 5px);
+  }
+  25% {
+    transform: translate(-4px, 0);
+  }
+  37.5% {
+    transform: translate(-2px, 5px);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  62.5% {
+    transform: translate(2px, -5px);
+  }
+  75% {
+    transform: translate(4px, 0);
+  }
+  87.5% {
+    transform: translate(2px, -5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes car-ltr {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, 200px, 0);
+  }
+  30% {
+    transform: translate(150px, 300px, 0);
+  }
+  100% {
+    transform: translate(150px, calc(100vh + 600px + 126px));
+  }
+}
+@keyframes car-rtl {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(0, 200px, 0);
+  }
+  30% {
+    transform: translate(-150px, 300px, 0);
+  }
+  100% {
+    transform: translate(-150px, calc(100vh + 600px + 126px));
+  }
+}
+@keyframes car-police {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}

@@ -1,0 +1,62 @@
+@gameTimeEasy: 15s;
+@gameTimeMedium: 10s;
+@gameTimeHard: 7s;
+@gameTimeUltra: 5s;
+
+#start-easy:checked {
+	& ~ .game .timer .timer__progress {
+		animation-duration: @gameTimeEasy;
+	}
+
+	& ~ .screen--finish {
+		animation-duration: @gameTimeEasy;
+	}
+}
+
+#start-medium:checked {
+	& ~ .game .timer .timer__progress {
+		animation-duration: @gameTimeMedium;
+	}
+
+	& ~ .screen--finish {
+		animation-duration: @gameTimeMedium;
+	}
+}
+
+#start-hard:checked {
+	& ~ .game .timer .timer__progress {
+		animation-duration: @gameTimeHard;
+	}
+
+	& ~ .screen--finish {
+		animation-duration: @gameTimeHard;
+	}
+}
+
+#start-ultra:checked {
+	& ~ .game .timer .timer__progress {
+		animation-duration: @gameTimeUltra;
+	}
+
+	& ~ .screen--finish {
+		animation-duration: @gameTimeUltra;
+	}
+}
+
+.start:checked {
+	& ~ .game .timer .timer__progress {
+		animation-name: translate;
+	}
+
+	& ~ .screen--start {
+		display: none;
+	}
+
+	& ~ .screen--finish {
+		animation-name: bounce;
+	}
+
+	& ~ .game {
+
+	}
+}

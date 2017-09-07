@@ -1,0 +1,105 @@
+.mole {
+	position: absolute;
+	top: 20%;
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin-left: 23px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	animation-name: mole-def;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-fill-mode: backwards;
+
+	&:nth-of-type(1) {
+		background-image: url('img/mole.png');
+	}
+
+	&:nth-of-type(2) {
+		background-image: url('img/mole2.png');
+	}
+
+
+	&--1 {
+		animation-duration: 3s;
+		animation-delay: 1s;
+	}
+
+	&--2 {
+		animation-duration: 3s;
+		animation-delay: 2.5s;
+	}
+
+	&--3 {
+		animation-duration: 4s;
+		animation-delay: 2s;
+	}
+
+	&--4 {
+		animation-duration: 4s;
+		animation-delay: 4s;
+	}
+
+	&--5 {
+		animation-duration: 3.5s;
+		animation-delay: 2s;
+	}
+
+	&--6 {
+		animation-duration: 3.5s;
+		animation-delay: 3.75s;
+	}
+
+	&--7 {
+		animation-duration: 2.5s;
+		animation-delay: 1.5s;
+	}
+
+	&--8 {
+		animation-duration: 2.5s;
+		animation-delay: 2.75s;
+	}
+
+	&--9 {
+		animation-duration: 3.5s;
+		animation-delay: 1s;
+	}
+
+	&--10 {
+		animation-duration: 3.5s;
+		animation-delay: 2.75s;
+	}
+
+	&--11 {
+		animation-duration: 3.5s;
+		animation-delay: 3s;
+	}
+
+	&--12 {
+		animation-duration: 3.5s;
+		animation-delay: 4.75s;
+	}
+}
+
+.mole-input:checked + .mole {
+	display: none;
+}
+
+@keyframes mole-def {
+	0% {
+		transform: translateY(100px);
+	}
+	10% {
+		transform: translateY(-20px);
+	}
+	20% {
+		transform: translateY(10px);
+	}
+	30% {
+		transform: translateY(100px);
+	}
+	100% {
+		transform: translateY(100px);
+	}
+}

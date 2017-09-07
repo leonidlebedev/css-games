@@ -1,0 +1,37 @@
+@board-width: 460px;
+@board-height: 100vh;
+
+.wrapper {
+	position: relative;
+	width: @board-width;
+	height: @board-height;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: @bg-color;
+	background-image: url('img/road2.jpg');
+	background-size: 100% auto;
+	background-position: 0 0;
+	animation: road 4s infinite linear both;
+	transform: translateZ(0);
+
+	&:hover {
+		animation-duration: 1s;
+
+		.screen_welcome {
+			display: none;
+		}
+
+		.game {
+			display: block;
+		}
+	}
+}
+
+@keyframes road {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 0 560px;
+	}
+}
